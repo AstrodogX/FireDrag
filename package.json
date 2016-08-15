@@ -10,62 +10,619 @@
   },
   "preferences": [
     {
-      "name": "searchIn",
-      "type": "radio",
-      "title": "Search Text in",
-      "value": false,
+      "name": "actionGauche",
+      "type": "menulist",
+      "title": "Glisser un lien vers la gauche :",
+      "value": "arriere",
       "options": [
         {
-          "value": false,
-          "label": "Frontground"
+          "value": "actuel",
+          "label": "Ouvrir dans l’onglet courant"
         },
         {
-          "value": true,
-          "label": "Background"
+          "value": "arriere",
+          "label": "Ouvrir dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Ouvrir dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le lien"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                         "
         }
       ]
     },
     {
-      "name": "openIn",
-      "type": "radio",
-      "title": "Open Link in",
-      "value": true,
+      "name": "actionDroite",
+      "type": "menulist",
+      "title": "Glisser un lien vers la droite :",
+      "value": "premier",
       "options": [
         {
-          "value": false,
-          "label": "Frontground"
+          "value": "actuel",
+          "label": "Ouvrir dans l’onglet courant"
         },
         {
-          "value": true,
-          "label": "Background"
+          "value": "arriere",
+          "label": "Ouvrir dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Ouvrir dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le lien"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                         "
         }
       ]
     },
     {
-      "type": "integer",
-      "name": "threshold",
-      "value": 50,
-      "title": "Threshold",
-      "description": "threshold for dragging distance"
+      "name": "actionHautGauche",
+      "type": "menulist",
+      "title": "Glisser un lien vers le haut-gauche :",
+      "value": "actuel",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Ouvrir dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Ouvrir dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Ouvrir dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le lien"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                         "
+        }
+      ]
+    },
+    {
+      "name": "actionHaut",
+      "type": "menulist",
+      "title": "Glisser un lien vers le haut :",
+      "value": "actuel",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Ouvrir dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Ouvrir dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Ouvrir dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le lien"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                         "
+        }
+      ]
+    },
+    {
+      "name": "actionHautDroite",
+      "type": "menulist",
+      "title": "Glisser un lien vers le haut-droit :",
+      "value": "actuel",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Ouvrir dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Ouvrir dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Ouvrir dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le lien"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                         "
+        }
+      ]
+    },
+    {
+      "name": "actionBasGauche",
+      "type": "menulist",
+      "title": "Glisser un lien vers le bas-gauche :",
+      "value": "copier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Ouvrir dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Ouvrir dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Ouvrir dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le lien"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                         "
+        }
+      ]
+    },
+    {
+      "name": "actionBas",
+      "type": "menulist",
+      "title": "Glisser un lien vers le bas :",
+      "value": "copier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Ouvrir dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Ouvrir dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Ouvrir dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le lien"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                         "
+        }
+      ]
+    },
+    {
+      "name": "actionBasDroite",
+      "type": "menulist",
+      "title": "Glisser un lien vers le bas-droit :",
+      "value": "copier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Ouvrir dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Ouvrir dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Ouvrir dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le lien"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                         "
+        }
+      ]
+    },
+    {
+      "name": "lienTexte",
+      "type": "bool",
+      "title": "Traiter les liens non cliquables comme des vrais liens",
+      "value": true
+    },
+    {
+      "type": "string",
+      "name": "domaines",
+      "value": "com org fr be ch re eu",
+      "title": "Domaines de premier niveau à considérer comme liens",
+      "description": "Séparés par un espace"
+    },
+    {
+      "name": "actionGaucheTexte",
+      "type": "menulist",
+      "title": "Glisser du texte vers la gauche :",
+      "value": "arriere",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Rechercher dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Rechercher dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Rechercher dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le texte"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                                "
+        }
+      ]
     },
     {
       "type": "control",
-      "name": "setEngine",
-      "label": "Click",
-      "title": "Select Search Engine"
+      "label": "Choisir",
+      "name": "moteurGaucheBtn",
+      "title": "Moteur de recherche à gauche"
     },
     {
-      "name": "selectedSearchEngine",
+      "name": "moteurGauche",
       "type": "string",
-      "title": "selectedSearchEngine",
+      "title": "moteurGauche",
       "value": "",
       "hidden": true
     },
     {
+      "name": "actionDroiteTexte",
+      "type": "menulist",
+      "title": "Glisser du texte vers la droite :",
+      "value": "premier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Rechercher dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Rechercher dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Rechercher dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le texte"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                                "
+        }
+      ]
+    },
+    {
+      "type": "control",
+      "label": "Choisir",
+      "name": "moteurDroiteBtn",
+      "title": "Moteur de recherche à droite"
+    },
+    {
+      "name": "moteurDroite",
+      "type": "string",
+      "title": "moteurDroite",
+      "value": "",
+      "hidden": true
+    },
+    {
+      "name": "actionHautGaucheTexte",
+      "type": "menulist",
+      "title": "Glisser du texte vers le haut-gauche :",
+      "value": "premier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Rechercher dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Rechercher dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Rechercher dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le texte"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                                "
+        }
+      ]
+    },
+    {
+      "type": "control",
+      "label": "Choisir",
+      "name": "moteurHautGaucheBtn",
+      "title": "Moteur de recherche en haut à gauche"
+    },
+    {
+      "name": "moteurHautGauche",
+      "type": "string",
+      "title": "moteurHautGauche",
+      "value": "",
+      "hidden": true
+    },
+    {
+      "name": "actionHautTexte",
+      "type": "menulist",
+      "title": "Glisser du texte vers le haut :",
+      "value": "premier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Rechercher dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Rechercher dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Rechercher dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le texte"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                                "
+        }
+      ]
+    },
+    {
+      "type": "control",
+      "label": "Choisir",
+      "name": "moteurHautBtn",
+      "title": "Moteur de recherche en haut"
+    },
+    {
+      "name": "moteurHaut",
+      "type": "string",
+      "title": "moteurHaut",
+      "value": "",
+      "hidden": true
+    },
+    {
+      "name": "actionHautDroiteTexte",
+      "type": "menulist",
+      "title": "Glisser du texte vers le haut-droit :",
+      "value": "premier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Rechercher dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Rechercher dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Rechercher dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le texte"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                                "
+        }
+      ]
+    },
+    {
+      "type": "control",
+      "label": "Choisir",
+      "name": "moteurHautDroiteBtn",
+      "title": "Moteur de recherche en haut à droite"
+    },
+    {
+      "name": "moteurHautDroite",
+      "type": "string",
+      "title": "moteurHautDroite",
+      "value": "",
+      "hidden": true
+    },
+    {
+      "name": "actionBasGaucheTexte",
+      "type": "menulist",
+      "title": "Glisser du texte vers le bas-gauche :",
+      "value": "premier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Rechercher dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Rechercher dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Rechercher dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le texte"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                                "
+        }
+      ]
+    },
+    {
+      "type": "control",
+      "label": "Choisir",
+      "name": "moteurBasGaucheBtn",
+      "title": "Moteur de recherche en bas à gauche"
+    },
+    {
+      "name": "moteurBasGauche",
+      "type": "string",
+      "title": "moteurBasGauche",
+      "value": "",
+      "hidden": true
+    },
+    {
+      "name": "actionBasTexte",
+      "type": "menulist",
+      "title": "Glisser du texte vers le bas :",
+      "value": "premier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Rechercher dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Rechercher dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Rechercher dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le texte"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                                "
+        }
+      ]
+    },
+    {
+      "type": "control",
+      "label": "Choisir",
+      "name": "moteurBasBtn",
+      "title": "Moteur de recherche en bas"
+    },
+    {
+      "name": "moteurBas",
+      "type": "string",
+      "title": "moteurBas",
+      "value": "",
+      "hidden": true
+    },
+    {
+      "name": "actionBasDroiteTexte",
+      "type": "menulist",
+      "title": "Glisser du texte vers le bas-droit :",
+      "value": "premier",
+      "options": [
+        {
+          "value": "actuel",
+          "label": "Rechercher dans l’onglet courant"
+        },
+        {
+          "value": "arriere",
+          "label": "Rechercher dans un nouvel onglet en arrière plan"
+        },
+        {
+          "value": "premier",
+          "label": "Rechercher dans un nouvel onglet au premier plan"
+        },
+        {
+          "value": "copier",
+          "label": "Copier le texte"
+        },
+        {
+          "value": "rien",
+          "label": "Ne rien faire                                                                "
+        }
+      ]
+    },
+    {
+      "type": "control",
+      "label": "Choisir",
+      "name": "moteurBasDroiteBtn",
+      "title": "Moteur de recherche en bas à droite"
+    },
+    {
+      "name": "moteurBasDroite",
+      "type": "string",
+      "title": "moteurBasDroite",
+      "value": "",
+      "hidden": true
+    },
+    {
+      "name": "ongletPlace",
       "type": "bool",
-      "name": "insertAfterCurrent",
-      "value": false,
-      "title": "Open a new tab right after the current tab"
+      "title": "Ouvrir les onglets juste après l’onglet courant",
+      "value": true
+    },
+    {
+      "name": "supprimerEspace",
+      "type": "radio",
+      "title": "S’il existe, sur le texte, supprimer l’espace qui se trouve :",
+      "value": "debutfin",
+      "options": [
+        {
+          "value": "debut",
+          "label": "Avant"
+        },
+        {
+          "value": "fin",
+          "label": "Après"
+        },
+        {
+          "value": "debutfin",
+          "label": "Avant et après"
+        },
+        {
+          "value": "",
+          "label": "Ne pas le supprimer"
+        }
+      ]
+    },
+    {
+      "name": "distance",
+      "type": "integer",
+      "title": "Distance minimal pour prendre en compte le glissement (en pixels)",
+      "value": 15
+    },
+    {
+      "name": "dernierX",
+      "type": "string",
+      "title": "dernierX",
+      "value": 0,
+      "hidden": true
+    },
+    {
+      "name": "dernierY",
+      "type": "string",
+      "title": "dernierY",
+      "value": 0,
+      "hidden": true
     }
   ],
   "license": "MIT"

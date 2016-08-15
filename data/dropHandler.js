@@ -2,83 +2,47 @@
  * Created by erictsangx on 5/10/2015.
  */
 
-
 (function () {
     'use strict';
     const start = {};
+    const end = {};
     let distance = 0;
     let dropOnInput = false;
-
-    function parseLink(text) {
-        if (text.startsWith('http')) {
-            return {
-                link: text,
-                isLink: true
-            };
-        }
-        if (text.startsWith('www.')) {
-            return {
-                link: `http://${text}`,
-                isLink: true
-            };
-        }
-        return {
-            isLink: false
-        };
-    }
-
+    
     this.addEventListener('dragstart', event => {
         start.x = event.clientX;
         start.y = event.clientY;
     }, false);
 
-
     this.addEventListener('dragend', event => {
-        if (!dropOnInput) {
+        if (!dropOnInput && end.y != undefined && end.x != undefined) {
             event.preventDefault();
-            const link = event.dataTransfer.getData('URL');
-            const text = event.dataTransfer.getData('text');
-
             const emitObj = {
-                content: '',
-                search: true,
-                distance: distance
+                contentLink: event.dataTransfer.getData('URL'),
+                contentText: event.dataTransfer.getData('text'),
+                distance: distance,
+                angle: Math.round((Math.atan2(end.y - start.y, end.x - start.x) * 180 / Math.PI)+180),
+                finY: end.y,
+                finX: end.x
             };
-            if (link) {
-                emitObj.content = link;
-                emitObj.search = false;
-            }
-            else {
-                const parsed = parseLink(text);
-                if (parsed.isLink) {
-                    emitObj.content = parsed.link;
-                    emitObj.search = false;
-                }
-                else {
-                    emitObj.content = text;
-                    emitObj.search = true;
-                }
-            }
             self.port.emit('triggerDrop', emitObj);
         }
     });
 
     this.ondrop = (event) => {
-        if (!dropOnInput) {
+        end.x = event.clientX;
+        end.y = event.clientY;
+        if (event.target.nodeName == 'INPUT') {
+            dropOnInput = true;
+        } else {
+            distance = Math.hypot(end.x - start.x, end.y - start.y);
+            dropOnInput = false;
             event.preventDefault();
         }
     };
 
     this.ondragover = (event)=> {
         event.preventDefault();
-        if (event.target.nodeName == 'INPUT') {
-            dropOnInput = true;
-        }
-        else {
-            distance = Math.hypot(event.clientX - start.x, event.clientY - start.y);
-            dropOnInput = false;
-        }
     };
-
 
 }).call(document);
